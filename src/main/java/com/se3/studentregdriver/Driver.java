@@ -76,20 +76,8 @@ public class Driver {
         be.addModule(ph160);
         be.addModule(en150);
 
-        // Add Students and courses to Modules
         Course[] courses = {cs, ee, be};
-        
-        for (Course c : courses) {
-            c.getModules().stream().forEach(m -> {
-                m.addCourse(c);
-                c.getStudents().stream().forEach(s -> {
-                    m.addStudent(s);
-                    s.addModule(m);
-                });
-            });
-            c.getStudents().stream().forEach(s -> s.addCourse(c));
-        }
-        
+
         // Print out Courses & their Modules
         for(Course c : courses) {
             System.out.println(c);
